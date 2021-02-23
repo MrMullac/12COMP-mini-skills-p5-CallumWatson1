@@ -18,7 +18,7 @@ function draw() {
 
   stroke(100)
   strokeWeight(1)
-  fill('red')
+  fill('black')
   ellipse(xPos, yPos, diam)
   
   xPos = xPos + xVel;

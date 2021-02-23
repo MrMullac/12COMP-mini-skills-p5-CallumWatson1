@@ -1,10 +1,11 @@
 /********************************************************/
 // t07_objects.js
 /********************************************************/
-var x = 0;
-var y = 200;
+var xVel = 10;
+var yVel = 10;
+var xPos = 530;
+var yPos = 200;
 var diam = 50;
-var xVel = 3;
 
 var pog = {
   x: 0,
@@ -32,8 +33,11 @@ function draw() {
 
 
   
+  pog.x = pog.x + xVel;
+  pog.y = pog.y + yVel;
+  
   if(pog.x >= width - pog.diam/2){
-   pog.x = width - diam/2;
+   pog.x = width - pog.diam/2;
     xVel = xVel * -1;
   } 
   else if(pog.x <= 0 + pog.diam/2){
@@ -42,31 +46,26 @@ function draw() {
   }
 
   if(pog.y >= height - pog.diam/2){
-   yPos = height - diam/2;
-    xVel = xVel * -1;
-  } 
-  else if(pog.y <= 0 + pog.diam/2){
-   pog.y = pog.diam/2;
-    xVel = xVel * -1;
+    yVel = yVel * -1;
+  }else if (pog.y < pog.diam){
+    yVel = yVel * -1;
   }
 
-if(pogg.x >= width - pogg.diam/2){
+  pogg.x = pogg.x + xVel;
+  pogg.y = pogg.y + yVel;
+  
+  if(pogg.x >= width - pogg.diam/2){
    pogg.x = width - pogg.diam/2;
-    xVel = xVel * -1;
+   xVel = xVel * -1;
   } 
   else if(pogg.x <= 0 + pogg.diam/2){
-   pog.x = pog.diam/2;
+   pogg.x = pogg.diam/2;
     xVel = xVel * -1;
   }
 
   if(pogg.y >= height - pogg.diam/2){
-   yPos = height - diam/2;
-    xVel = xVel * -1;
-  } 
-  else if(pogg.y <= 0 + pogg.diam/2){
-   pog.y = pog.diam/2;
-    xVel = xVel * -1;
+   yVel = yVel * -1;
+  }else if (pogg.y < pogg.diam){
+    yVel = yVel * -1;
   }
-  pog.x = pog.x + xVel;
-  pog.y = pog.y + xVel + 1;
 }
